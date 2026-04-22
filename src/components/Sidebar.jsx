@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import { dummyProfileData } from '../assets/assets'
 import {CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, Loader2, LogOutIcon, MenuIcon, SettingsIcon, UserIcon, XIcon} from 'lucide-react'
+import { useNavigate } from "react-router-dom"
 // import { useAuth } from '../context/AuthContext'
 // import api from '../api/axios'
 
@@ -10,7 +11,9 @@ const Sidebar = () => {
     const [userName, setUserName] = useState('')
     const [mobileOpen, setMobileOpen] = useState(false)
 
-    // const {user, loading, logout} = useAuth()
+    const navigate = useNavigate()
+
+    // const { logout} = useAuth()
 
     // useEffect(()=>{
     //     api.get("/profile").then(({data})=> {
@@ -29,7 +32,7 @@ const Sidebar = () => {
             console.log("API Error:", error.message)
 
             // fallback (IMPORTANT)
-            setUserName("John Doe")
+            setUserName("Sai Kumar")
         }
     }
 
@@ -52,10 +55,20 @@ const Sidebar = () => {
         {name: "Settings", href: "/settings", icon: SettingsIcon},
     ]
 
-    const handleLogout = ()=>{
-        logout()
-        window.location.href = "/login"
+    // const handleLogout = ()=>{
+    //     logout()
+    //     window.location.href = "/login"
+    // }
+
+    const handleLogout = () => {
+    try {
+        if (logout) logout()
+    } catch (err) {
+        console.log("Logout error")
     }
+
+    navigate("/login")
+}
 
     const sidebarContent = (
         <>
