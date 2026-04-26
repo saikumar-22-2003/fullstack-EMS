@@ -17,7 +17,7 @@ const Payslips = () => {
 
   // const {user} = useAuth()
   // const isAdmin = user?.role === "ADMIN";
-  const isAdmin = true;
+  const isAdmin = false;
 
   const fetchPayslips = useCallback(async ()=>{
     // try {
