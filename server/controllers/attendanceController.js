@@ -1,4 +1,4 @@
-// import { inngest } from "../inngest/index.js";
+import { inngest } from "../inngest/index.js";
 import Attendance from "../models/Attendance.js";
 import Employee from "../models/Employee.js";
 
