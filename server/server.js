@@ -1,9 +1,4 @@
-import express from 'express';
-import cors from 'cors';
-// import { createServer } from 'http';
-// import { Server } from 'socket.io';
-// import {v4 as uuidv4} from 'uuid';
-import dotenv from 'dotenv/config';
+// new server.js code  by the original 
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
@@ -13,9 +8,9 @@ import authRouter from "./routes/authRoutes.js";
 import employeesRouter from "./routes/employeeRoutes.js";
 import profileRouter from "./routes/profileRoutes.js";
 import attendanceRouter from "./routes/attendanceRoutes.js";
-// import leaveRouter from "./routes/leaveRoutes.js";
-// import payslipRouter from "./routes/payslipsRoutes.js";
-// import dashboardRouter from "./routes/dashboardRoutes.js";
+import leaveRouter from "./routes/leaveRoutes.js";
+import payslipRouter from "./routes/payslipsRoutes.js";
+import dashboardRouter from "./routes/dashboardRoutes.js";
 
 // import { serve } from "inngest/express";
 // import { inngest, functions } from "./inngest/index.js"
@@ -35,9 +30,11 @@ app.use("/api/auth", authRouter)
 app.use("/api/employees", employeesRouter)
 app.use("/api/profile", profileRouter)
 app.use("/api/attendance", attendanceRouter)
-// app.use("/api/leave", leaveRouter)
-// app.use("/api/payslips", payslipRouter)
-// app.use("/api/dashboard", dashboardRouter)
+app.use("/api/leave", leaveRouter)
+app.use("/api/payslips", payslipRouter)
+app.use("/api/dashboard", dashboardRouter)
+
+
 
 // app.use("/api/inngest", serve({ client: inngest, functions }));
 
